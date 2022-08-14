@@ -3,7 +3,7 @@ package com.red;
 public class Main {
 
     public static void main(String[] args) {
-      task(2); //tasks 1-4
+      task(1); //tasks 1-4
     }
 
     private static void task(int i){

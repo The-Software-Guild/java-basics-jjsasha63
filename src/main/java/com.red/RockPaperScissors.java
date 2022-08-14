@@ -9,48 +9,19 @@ public class RockPaperScissors {
         Random random = new Random();
         int pc = random.nextInt(3)+1;
         System.out.println("Opponent's choice - " + define_choice(pc));
-        int res = 0;
-        if(userInput == pc) return 0;
-        switch (userInput){
-            case 1:
-                if(pc == 2) res = 2;
-                else res = 1;
-                break;
-            case 2:
-                if(pc == 1) res = 1;
-                else res = 2;
-                break;
-            case 3:
-                if(pc == 2) res = 1;
-                else res = 2;
-                break;
-        }
-        return res;
+        return userInput == pc ? 0 : userInput == 1 ? (pc == 2 ? 2 : 1) : (userInput==2 ? (pc == 1 ? 1 : 2) : (userInput==3 ? (pc == 2 ? 1 : 2) : 0));
     }
 
     private static String define_choice(int choice){
-        switch (choice){
-            case 1:
-                return "Rock";
-            case 2:
-                return "Paper";
-            case 3:
-                return "Scissors";
-            default:
-                throw new RuntimeException("Something went wrong");
-        }
+        return choice == 1 ? "Rock" : choice == 2 ? "Paper" : choice == 3 ? "Scissors" : "Something went wrong";
     }
+
     private static String show_res(int res){
-        if(res == 1) return "You Won!!!";
-        else if(res == 2) return "You Lost!!!";
-        else if (res == 0) return "It's a tie!!!";
-        else throw new RuntimeException("Something went wrong");
+        return res == 1 ? "You Won!!!" : res == 2 ? "You Lost!!!" : res == 0 ? "It's a tie!!!" : "Something went wrong";
     }
 
     private static String show_res(int[] res){
-        if(res[1]>res[2]) return "You won the game!!!";
-        else if(res[1]<res[2]) return "You lost the game!!!";
-        else return "It's a tie!!!";
+        return res[1]>res[2] ? "You won the game!!!" : res[1]<res[2] ? "You lost the game!!!" : "It's a tie!!!";
     }
 
     private static int[] game(int iter, Scanner scanner){
@@ -78,8 +49,7 @@ public class RockPaperScissors {
         int[] results = game(iter,scanner);
         System.out.println(show_res(results) + "\nDo you want to play again? Yes or No");
         scanner.nextLine();
-        String resp = scanner.nextLine();
-        if(resp.toLowerCase().equals("yes")) play();
+        if(scanner.nextLine().toLowerCase().equals("yes")) play();
     }
 
 }
