@@ -9,7 +9,7 @@ public class RockPaperScissors {
         Random random = new Random();
         int pc = random.nextInt(3)+1;
         System.out.println("Opponent's choice - " + define_choice(pc));
-        return userInput == pc ? 0 : userInput == 1 ? (pc == 2 ? 2 : 1) : (userInput==2 ? (pc == 1 ? 1 : 2) : (userInput==3 ? (pc == 2 ? 1 : 2) : 0));
+        return userInput == pc ? 0 : userInput == 1 ? (pc == 2 ? 2 : 1) : (userInput==2 ? (pc == 1 ? 1 : 2) : (userInput==3 ? (pc == 2 ? 1 : 2) : -1));
     }
 
     private static String define_choice(int choice){
